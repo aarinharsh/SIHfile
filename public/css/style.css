@@ -1,0 +1,284 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f6f8fb;
+    color: #172033;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.navbar {
+    background: white;
+    min-height: 70px;
+    padding: 15px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.06);
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 22px;
+}
+
+.nav-links a:hover {
+    opacity: .7;
+}
+
+.nav-auth {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.hero {
+    min-height: 620px;
+    padding: 80px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    background: linear-gradient(135deg, #eef5ff, #ffffff);
+}
+
+.hero-text {
+    max-width: 700px;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 1.1;
+    margin: 20px 0;
+}
+
+.hero h1 span {
+    display: block;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #596579;
+    margin-bottom: 30px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 7px 12px;
+    border-radius: 20px;
+    background: #e7efff;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.btn {
+    display: inline-block;
+    border: none;
+    padding: 13px 22px;
+    border-radius: 9px;
+    background: #2457d6;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    margin: 5px;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn.secondary {
+    background: white;
+    color: #2457d6;
+    border: 1px solid #d7deeb;
+}
+
+.btn.small {
+    padding: 8px 14px;
+}
+
+.journey {
+    background: white;
+    padding: 30px;
+    width: 330px;
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(30,50,90,.12);
+}
+
+.journey h3 {
+    margin-bottom: 20px;
+}
+
+.journey div {
+    padding: 13px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.section {
+    padding: 80px 8%;
+}
+
+.section h1,
+.section h2 {
+    margin-bottom: 35px;
+}
+
+.light {
+    background: white;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    padding: 28px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(30,50,90,.08);
+}
+
+.card h3,
+.card h2 {
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #657084;
+    margin-bottom: 15px;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.steps b {
+    font-size: 30px;
+}
+
+.cta {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.form-container {
+    width: min(500px, 90%);
+    margin: 70px auto;
+    background: white;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 10px 40px rgba(30,50,90,.1);
+}
+
+.form-container.wide {
+    width: min(900px, 90%);
+}
+
+.form-container h1 {
+    margin-bottom: 25px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+input,
+select {
+    padding: 13px;
+    border: 1px solid #d7dce5;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.result {
+    margin-top: 25px;
+    padding: 20px;
+    background: #f1f6ff;
+    border-radius: 10px;
+}
+
+.dashboard {
+    width: min(1100px, 90%);
+    margin: 60px auto;
+}
+
+.application {
+    background: white;
+    padding: 25px;
+    margin: 15px 0;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.06);
+}
+
+.status {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: #e8f1ff;
+    font-weight: bold;
+}
+
+footer {
+    background: #111827;
+    color: white;
+    padding: 50px 8%;
+}
+
+footer p {
+    margin-top: 10px;
+    color: #c6ccda;
+}
+
+.disclaimer {
+    font-size: 13px;
+    margin-top: 25px;
+}
+
+@media (max-width: 850px) {
+
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .nav-links {
+        order: 3;
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 5px;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .journey {
+        width: 100%;
+    }
+}

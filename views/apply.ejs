@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Apply</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<%- include("partials/navbar") %>
+
+<div class="form-container wide">
+
+    <h1>Start Application</h1>
+
+    <h2><%= scheme.name %></h2>
+
+    <p><%= scheme.description %></p>
+
+    <form method="POST" action="/apply">
+
+        <input
+            type="hidden"
+            name="scheme"
+            value="<%= scheme._id %>"
+        >
+
+        <label>Required Amount</label>
+
+        <input
+            type="number"
+            name="amount"
+            max="<%= scheme.maxLoan %>"
+            required
+        >
+
+        <label>Purpose</label>
+
+        <input
+            name="purpose"
+            placeholder="Describe your purpose"
+            required
+        >
+
+        <label>Select Channel Partner</label>
+
+        <select name="partner" required>
+
+            <% partners.forEach(partner => { %>
+
+                <option value="<%= partner._id %>">
+                    <%= partner.name %> — <%= partner.type %>
+                </option>
+
+            <% }) %>
+
+        </select>
+
+        <button class="btn">
+            Submit Application
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

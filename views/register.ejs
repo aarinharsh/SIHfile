@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register - SC Finance Assist</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<%- include("partials/navbar") %>
+
+<div class="form-container">
+
+    <h1>Create Account</h1>
+
+    <form method="POST" action="/register">
+
+        <input name="name" placeholder="Full Name" required>
+
+        <input name="email" type="email" placeholder="Email" required>
+
+        <input name="mobile" placeholder="Mobile Number" required>
+
+        <input name="password" type="password" placeholder="Password" required>
+
+        <input name="confirmPassword"
+               type="password"
+               placeholder="Confirm Password"
+               required>
+
+        <button class="btn">Create Account</button>
+
+    </form>
+
+    <p>Already have an account?
+        <a href="/login">Login</a>
+    </p>
+
+</div>
+
+</body>
+</html>

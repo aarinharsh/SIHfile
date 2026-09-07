@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<%- include("partials/navbar") %>
+
+<div class="dashboard">
+
+    <h1>Welcome, <%= user.name %> 👋</h1>
+
+    <p>What would you like to do?</p>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Find My Scheme</h3>
+            <p>Discover suitable financial assistance.</p>
+            <a class="btn" href="/scheme/recommend">Start</a>
+        </div>
+
+        <div class="card">
+            <h3>Loan Calculator</h3>
+            <p>Calculate estimated EMI.</p>
+            <a class="btn" href="/calculator">Calculate</a>
+        </div>
+
+        <div class="card">
+            <h3>Channel Partners</h3>
+            <p>Find available partners.</p>
+            <a class="btn" href="/partners">Explore</a>
+        </div>
+
+        <div class="card">
+            <h3>My Applications</h3>
+            <p>Track your applications.</p>
+            <a class="btn" href="/applications">Track</a>
+        </div>
+
+    </div>
+
+    <a href="/logout">Logout</a>
+
+</div>
+
+</body>
+</html>

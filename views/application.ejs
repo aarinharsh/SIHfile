@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Applications</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<%- include("partials/navbar") %>
+
+<div class="section">
+
+    <h1>My Applications</h1>
+
+    <% if (applications.length === 0) { %>
+
+        <p>You haven't submitted any applications yet.</p>
+
+    <% } %>
+
+    <% applications.forEach(app => { %>
+
+        <div class="application">
+
+            <h3>
+                <%= app.scheme.name %>
+            </h3>
+
+            <p>
+                Partner:
+                <%= app.partner.name %>
+            </p>
+
+            <p>
+                Amount:
+                ₹<%= app.amount.toLocaleString("en-IN") %>
+            </p>
+
+            <span class="status">
+                <%= app.status %>
+            </span>
+
+            <p>
+                Submitted:
+                <%= app.createdAt.toLocaleDateString() %>
+            </p>
+
+        </div>
+
+    <% }) %>
+
+</div>
+
+</body>
+</html>

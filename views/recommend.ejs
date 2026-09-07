@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Find My Scheme</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<%- include("partials/navbar") %>
+
+<div class="form-container wide">
+
+    <h1>Find My Scheme</h1>
+
+    <p>Answer a few questions to see suitable demo schemes.</p>
+
+    <form method="POST" action="/scheme/recommend">
+
+        <label>Purpose</label>
+
+        <select name="purpose" required>
+            <option value="BUSINESS">Business / Income Generation</option>
+            <option value="EDUCATION">Education</option>
+        </select>
+
+        <label>Annual Family Income</label>
+
+        <input
+            type="number"
+            name="income"
+            placeholder="Annual income"
+            required
+        >
+
+        <label>Required Amount</label>
+
+        <input
+            type="number"
+            name="amount"
+            placeholder="Amount required"
+            required
+        >
+
+        <button class="btn">Find Suitable Schemes</button>
+
+    </form>
+
+    <% if (results) { %>
+
+        <h2>Recommended Options</h2>
+
+        <% if (results.length === 0) { %>
+
+            <p>No matching demo scheme found.</p>
+
+        <% } %>
+
+        <div class="cards">
+
+            <% results.forEach(scheme => { %>
+
+                <div class="card">
+
+                    <h3><%= scheme.name %></h3>
+
+                    <p><%= scheme.description %></p>
+
+                    <p>
+                        Maximum configured loan:
+                        ₹<%= scheme.maxLoan.toLocaleString("en-IN") %>
+                    </p>
+
+                    <p>
+                        Interest: <%= scheme.interestRate %>%
+                    </p>
+
+                    <a class="btn" href="/apply/<%= scheme._id %>">
+                        Continue →
+                    </a>
+
+                </div>
+
+            <% }) %>
+
+        </div>
+
+    <% } %>
+
+</div>
+
+</body>
+</html>

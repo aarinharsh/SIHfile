@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Calculator</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<%- include("partials/navbar") %>
+
+<div class="form-container">
+
+    <h1>Loan Calculator</h1>
+
+    <label>Loan Amount</label>
+    <input id="amount" type="number" value="100000">
+
+    <label>Annual Interest Rate (%)</label>
+    <input id="rate" type="number" value="8" step="0.1">
+
+    <label>Tenure (Months)</label>
+    <input id="tenure" type="number" value="60">
+
+    <button class="btn" onclick="calculateEMI()">
+        Calculate EMI
+    </button>
+
+    <div id="result" class="result"></div>
+
+</div>
+
+<script>
+
+function calculateEMI() {
+
+    const P = Number(document.getElementById("amount").value);
+    const annualRate = Number(document.getElementById("rate").value);
+    const N = Number(document.getElementById("tenure").value);
+
+    const r = annualRate / 12 / 100;
+
+    let emi;
+
+    if (r === 0) {
+        emi = P / N;
+    } else {
+        emi = P * r * Math.pow(1 + r, N) /
+              (Math.pow(1 + r, N) - 1);
+    }
+
+    const total = emi * N;
+    const interest = total - P;
+
+    document.getElementById("result").innerHTML = `
+        <h2>Estimated EMI: ₹${emi.toFixed(2)}</h2>
+        <p>Total Interest: ₹${interest.toFixed(2)}</p>
+        <p>Total Repayment: ₹${total.toFixed(2)}</p>
+    `;
+}
+
+</script>
+
+</body>
+</html>

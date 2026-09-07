@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Channel Partners</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<%- include("partials/navbar") %>
+
+<div class="section">
+
+    <h1>Find Channel Partner</h1>
+
+    <p>Demo Channel Partner directory.</p>
+
+    <div class="cards">
+
+        <% partners.forEach(partner => { %>
+
+            <div class="card">
+
+                <h2><%= partner.name %></h2>
+
+                <span class="badge">
+                    <%= partner.type %>
+                </span>
+
+                <p>
+                    📍 <%= partner.address %>
+                </p>
+
+                <p>
+                    Supported:
+                    <%= partner.supportedSchemes.join(", ") %>
+                </p>
+
+                <p>
+                    Status:
+                    <strong><%= partner.fundStatus %></strong>
+                </p>
+
+            </div>
+
+        <% }) %>
+
+    </div>
+
+</div>
+
+</body>
+</html>

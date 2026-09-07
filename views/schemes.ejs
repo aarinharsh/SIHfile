@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Schemes</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<%- include("partials/navbar") %>
+
+<div class="section">
+
+    <h1>Financial Assistance Options</h1>
+
+    <div class="cards">
+
+        <% schemes.forEach(scheme => { %>
+
+            <div class="card">
+
+                <h2><%= scheme.name %></h2>
+
+                <p><%= scheme.description %></p>
+
+                <p>Interest: <%= scheme.interestRate %>%</p>
+
+                <p>
+                    Maximum:
+                    ₹<%= scheme.maxLoan.toLocaleString("en-IN") %>
+                </p>
+
+                <a class="btn" href="/apply/<%= scheme._id %>">
+                    Explore
+                </a>
+
+            </div>
+
+        <% }) %>
+
+    </div>
+
+    <p class="disclaimer">
+        Demo/configured values only. Verify official scheme guidelines.
+    </p>
+
+</div>
+
+</body>
+</html>
